@@ -59,7 +59,7 @@ sudo npx tsx examples/example.js
 
 ini isi file example.js
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 import { ScrapBCA } from "mutasi-scraper";
 import { BCAParser } from "../src/helper/utils/Parser";
