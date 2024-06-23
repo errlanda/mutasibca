@@ -60,8 +60,7 @@ sudo npx tsx examples/example.js
 ini isi file example.js
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-// SCRIPT ini saat ini 0% BUG. Tanyakan dulu sama Erland 088989054639 jika mau merubahnya.
-// Klik BCA seringkali gagal login, karena bug dari sistem BCA sendiri. Jadi script ini dibuat supaya terus menerus menghajar tanpa henti meskipun error lanjut.
+
 import { ScrapBCA } from "mutasi-scraper";
 import { BCAParser } from "../src/helper/utils/Parser";
 import axios from "axios"; // Import axios
@@ -78,7 +77,7 @@ const norek = "xxxxxxx"; // pasti nomor rekeningnya
 
 async function runScraper() {
   const scraper = new ScrapBCA(user, pass, norek, {
-    headless: true,
+    headless: true,  // ganti false kalau dibutuhkan
     args: [
       "--log-level=3",
       "--no-default-browser-check",
@@ -140,10 +139,10 @@ async function runScraper() {
       let referenceId2 = item.nominal.replace(/,/g, ''); // Menghilangkan koma dari nominal
       referenceId2 = referenceId2.split('.')[0]; // Menghapus titik dan angka setelah titik
 
-////////////// atur sendiri bagian ini jangan diikutin /////////
 
 
-      // Kirim ke endpoint pertama
+
+      // Kirim ke endpoint pertama INI HANYA CONTOH JANGAN DIIKUTIN
       await axios.post('https://wa.erland.biz.id/mutasi', { reference_id2 : referenceId2 })
         .then(response => {
           console.log('Data berhasil dikirim ke wa BOT:', response.data);
@@ -160,8 +159,6 @@ async function runScraper() {
         .catch(error => {
           console.error('Error mengirim data ke hazline:', error);
         });
-
-////////////////////////////////////////////////////////////////
 
 
 
