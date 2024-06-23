@@ -59,6 +59,10 @@ sudo npx tsx examples/example.js
 
 ini isi file example.js
 
+/////////////////////////
+
+
+
 
 
 import { ScrapBCA } from "mutasi-scraper";
@@ -104,16 +108,14 @@ async function runScraper() {
       blnawal = 12;
     }
   }
-
 // di sini bisa ditambahkan pengaturan
-
   try {
+  
     await delay(2000); // Jeda 2 detik setelah login
     await scraper.loginToBCA();
     await delay(10000); // Jeda 10 detik setelah login
     const mutasinya = await scraper.selectAccountAndSetDates(tglawal, blnawal, tglakhir, blnakhir);
     await delay(5000); // Jeda 5 detik setelah memilih tanggal
-
     // Ambil HTML dari halaman
     const htmlContent = await mutasinya.content();
     await delay(2000);
